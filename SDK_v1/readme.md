@@ -15,6 +15,7 @@ print(result_upload)
 ```
 Save the upload_url. You can use this url link in the rest of the calls.
 
+
 2- Submit your audio file for transcription
 ```
 upload_url=upload_url
@@ -25,15 +26,19 @@ print(result_transcribe)
 ```
 Save the id in the response object.
 
+
 3 - Check the status and get the text result of the transcription
 ```
 job_id= id
-result = speect_to_text.status(job_id,API_KEY, model_choice=model_choice)
+result_status = speect_to_text.status(job_id,API_KEY, model_choice=model_choice)
 
+### get the full details of the result
+print(result_status)
+### get the text reulst only
 print(json.loads(result)["text"])
-
-
 ```
-Next steps:
+
+
+et voilà, Next steps:
 - pip install slashml
 - add SLASH_API_KEY to sys path
