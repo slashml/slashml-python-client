@@ -18,7 +18,7 @@ Save the upload_url. You can use this url link in the rest of the calls.
 
 2- Submit your audio file for transcription
 ```
-upload_url=upload_url
+upload_url=upload_url # you can skip step 1 and just input the accessible link of your # file)
 
 result_transcribe = speect_to_text.transcribe(upload_url,API_KEY, model_choice)
 
