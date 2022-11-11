@@ -40,9 +40,9 @@ def test_status():
 
     print(json.loads(result)["text"])
 
+test_upload()
 #test_transcribe()
-#test_transcribe()
-test_status()
+#test_status()
 # API_KEY="1bd15e1c161ff6d4db2ea1d661d7468b4fa61ca9"
 # token="Token {api}".format(api=API_KEY) 
 # print(token)
