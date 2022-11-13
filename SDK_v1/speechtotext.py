@@ -4,6 +4,7 @@ import os
 from pathlib import Path
 
 class SpeechToText:
+    # TODO: make sure this is dynamic
     SLASHML_BASE_URL = 'https://api.slashml.com/speech-to-text/v1'
     SLASHML_UPLOAD_URL = SLASHML_BASE_URL+'/upload/'
     SLASHML_TRANSCRIPT_URL = SLASHML_BASE_URL+'/transcribe/'
