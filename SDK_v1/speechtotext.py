@@ -12,7 +12,7 @@ class SpeechToText:
     SLASHML_TRANSCRIPT_STATUS_URL = lambda self,id: f"{SpeechToText.SLASHML_STATUS_URL}/{id}/"
  
     HEADERS:dict = {}
-    
+    ## add the api key to sys path envs 
     def __init__(self) -> None:
         self.HEADERS = {'authorization': os.environ.get('SLASHML_API_KEY')}
 
