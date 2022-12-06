@@ -2,7 +2,7 @@
 
 This is a Python client for SLASHML. It lets you run transcription jobs from your Python code or Jupyter notebook.
 
-Grab your token from [https://www.slashml.com/dashboard/](>settings> new api key) and authenticate by setting it as an environment variable (or when you initialize the service, see examples):
+Grab your token from [https://www.slashml.com/dashboard] (>settings> new api key) and authenticate by setting it as an environment variable (or when you initialize the service, see examples):
 ```
 export SLASHML_API_KEY=[token]
 ```
