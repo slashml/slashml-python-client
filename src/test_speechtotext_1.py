@@ -4,6 +4,7 @@ import os
 #API KEY (optional)
 
 # set environment path
+import os
 os.environ["SLASHML_API_KEY"] = "0d91bfede9c5c9de6ff1d5610ef71c3b6d5be9ee"
 # Initialize SlashML 
 speect_to_text = slashml.SpeechToText()
@@ -11,7 +12,7 @@ speect_to_text = slashml.SpeechToText()
 file_location="/Users/JJneid/Desktop/SlashMl/Benchmarking/podcast1/podcast1_long_trim.mp3"
 # If your audio files aren't accessible via a URL already, you can upload your audio file using this API
 upload_url= speect_to_text.upload_audio(file_location)
-# choose your service provider: "asembly", "aws", "whisper"
+# choose your service provider: "assembly", "aws", "whisper"
 service_provider="aws"
 # transcribe
 transcribe_id= speect_to_text.transcribe(upload_url,service_provider)
