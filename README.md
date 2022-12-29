@@ -48,7 +48,10 @@ Coming soon
 
 ## Introduction
 
-In this tutorial, benchmarking (coming soon) can help you decide which service provider is the best for you. 
+In this tutorial, we use slashml sdk to call speechtotext followed by summarization of the output of speechtotext.
+
+Eventually, benchmarking (coming soon) can help you decide which service provider is the best for you. 
+
 * For speech-to-text: "assembly", "aws", "whisper"
 * For summarization: "hugging-face", "openai"
 
