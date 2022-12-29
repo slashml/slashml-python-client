@@ -5,14 +5,14 @@
 This is a Python client (SDK) for SlashML. It allows the user to use the AI-based apps available and active in [SlashML-Dashboard](https://www.slashml.com/dashboard). 
 The apps can be together in the same code as long the input/output structure is compatible. For example, if the user wants to transcribe an audio file and get a summary, they can call speechtotext followed by summarization (speech>text>summary), see [Tutorial](##Quickstart-tutorial).
 
-State-of-the-art AI models from several service providers are available. At SlashML, we also do the benchmarking on these models for the user. This will give them an idea of the best service provider for their application. For the full list of the available models thru SlashML, go to section Available service providers. click [here](##Availlable-service-providers)
+State-of-the-art AI models from several service providers are available. At SlashML, we also do the benchmarking on these models for the user. This will give them an idea of the best service provider for their application. For the full list of the available models through SlashML, go to section Available service providers. Click [here](##Availlable-service-providers)
 
 ## Set up and usage
 There is a daily limit (throttling) on the number of calls the user performs,  the code runs without specifying a token (API key),  the throttling kicks in and prevents new jobs after exceeding 10 calls per minute. 
 
 If the user intends on using the service more frequently, it is recommended to generate an token or API key from [SlashML-Dashboard](https://www.slashml.com/dashboard). This way, the throttling limit will increase.
 
-Sign up and Grab your token from [SlashML-Dashboard](https://www.slashml.com/dashboard)>settings> new api key and authenticate by setting it as an environment variable (or when you initialize the service, see Quickstart tutorial):
+Sign up and Grab your token from [SlashML-Dashboard](https://www.slashml.com/dashboard) > settings > new api key and authenticate by setting it as an environment variable (or when you initialize the service, see Quickstart tutorial):
 
 In your terminal
 ```
@@ -27,6 +27,7 @@ os.environ["SLASHML_API_KEY"] = "slashml_api_token"
 ```
 
 If the user preferes using the API calls directly, the documentation is available [here](https://www.slashml.com/dashboard).
+
 ## Available service providers
 
 ### Speech-to-text
@@ -39,8 +40,8 @@ For transcription, SlashML supports the following service providers:
 ### Summarization
 For text summarization, SlashML supports the following service providers:
 
-* Meta Bart (thru Huggin-face)
-* Da-Vinci (OpenAI)
+* Meta Bart (thru [Huggin-face](https://huggingface.co/facebook/bart-large-cnn?text=The+tower+is+324+metres+%281%2C063+ft%29+tall%2C+about+the+same+height+as+an+81-storey+building%2C+and+the+tallest+structure+in+Paris.+Its+base+is+square%2C+measuring+125+metres+%28410+ft%29+on+each+side.+During+its+construction%2C+the+Eiffel+Tower+surpassed+the+Washington+Monument+to+become+the+tallest+man-made+structure+in+the+world%2C+a+title+it+held+for+41+years+until+the+Chrysler+Building+in+New+York+City+was+finished+in+1930.+It+was+the+first+structure+to+reach+a+height+of+300+metres.+Due+to+the+addition+of+a+broadcasting+aerial+at+the+top+of+the+tower+in+1957%2C+it+is+now+taller+than+the+Chrysler+Building+by+5.2+metres+%2817+ft%29.+Excluding+transmitters%2C+the+Eiffel+Tower+is+the+second+tallest+free-standing+structure+in+France+after+the+Millau+Viaduct))
+* Da-Vinci ([OpenAI](https://beta.openai.com/docs/models/overview))
 
 # Benchmarking
 Coming soon
