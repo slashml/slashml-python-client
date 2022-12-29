@@ -14,7 +14,6 @@ class SpeechToText:
     HEADERS:dict = {}
     ## add the api key to sys path envs 
     def __init__(self,API_KEY: str = None):
-        self.API_KEY=None
         if API_KEY:
             token="Token {0}".format(API_KEY)
             self.HEADERS = {'authorization': token}
@@ -26,7 +25,7 @@ class SpeechToText:
            # print("Auth with environment variable SLASHML_API_KEY")
         else:
             self.HEADERS=None 
-            print("No Auth, there are certain limites to the usage")
+            print("No API key provided, there are limits to the usage.")
 
     def upload_audio(self, file_location:str,header=None):
         headers = self.HEADERS
@@ -35,8 +34,12 @@ class SpeechToText:
         ]
         response = requests.post(self.SLASHML_UPLOAD_URL,
                                 headers=headers,files=files)
-        return  response.json()["upload_url"]
 
+        if response.status_code == 200:
+            return response.json()["upload_url"]
+        else:
+            return "ERROR"+ str(response.json())
+        
     def transcribe(self,upload_url:str,  service_provider: str,header=None ):
 
         transcript_request = {'audio_url': upload_url}
@@ -52,14 +55,8 @@ class SpeechToText:
         
         elif response.status_code == 429:
             return "THROTTLED"
-        
-        elif response.status_code == 404:
-            return "NOT FOUND"
-        
-        elif response.status_code == 500:
-            return "SERVER ERROR"
         else:
-            return "UNKNOWN ERROR"
+            return "ERROR"+ str(response.json())
         
     def status(self,job_id:str, service_provider: str ,header=None):
         headers = self.HEADERS
@@ -75,15 +72,8 @@ class SpeechToText:
         
         elif response.status_code == 429:
             return "THROTTLED"
-        
-        elif response.status_code == 404:
-            return "NOT FOUND"
-        
-        elif response.status_code == 500:
-            return "SERVER ERROR"
         else:
-            return "UNKNOWN ERROR"
-        
+            return "ERROR"+ str(response.json())
 
 class Summarization:
     SLASHML_SUMMARIZATION_URL = 'https://api.slashml.com/summarization/v1'
@@ -119,12 +109,8 @@ class Summarization:
             return response.json()["id"]
         elif response.status_code == 429:
             return "THROTTLED"
-        elif response.status_code == 404:
-            return "NOT FOUND"
-        elif response.status_code == 500:
-            return "SERVER ERROR"
         else:
-            return "UNKNOWN ERROR"
+            return "ERROR"+ str(response.json())
         
     def status(self,job_id:str, service_provider: str ,header=None):
         headers = self.HEADERS
@@ -135,9 +121,5 @@ class Summarization:
             return response.json()  #["summarization_data"]["summary_text"]
         elif response.status_code == 429:
             return "THROTTLED"
-        elif response.status_code == 404:
-            return "NOT FOUND"
-        elif response.status_code == 500:
-            return "SERVER ERROR"
         else:
-            return "UNKNOWN ERROR"
+            return "ERROR"+ str(response.json())
