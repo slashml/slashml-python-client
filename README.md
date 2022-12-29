@@ -32,9 +32,9 @@ If the user preferes using the API calls directly, the documentation is availabl
 ### Speech-to-text
 For transcription, SlashML supports the following service providers:
 
-* AssemblyAI
-* AWS
-* Whisper (OpenAI)
+* [AssemblyAI](https://github.com/AssemblyAI)
+* [AWS](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html) 
+* Whisper ([OpenAI](https://openai.com/blog/whisper/))
 
 ### Summarization
 For text summarization, SlashML supports the following service providers:
@@ -48,9 +48,9 @@ Coming soon
 
 ## Introduction
 
-In this tutorial, we use slashml sdk to call speechtotext followed by summarization of the output of speechtotext.
+In this tutorial, we use slashml sdk to call speechtotext followed by summarization of the output of speechtotext. All the user needs is an audio URL that can be used directly as ```upload_url```  or a local path to the audio file, preferrably ```.mp3```. The user can also set their ```SLASHML_API_KEY``` and not be blocked by throttling limits.
 
-Eventually, benchmarking (coming soon) can help you decide which service provider is the best for you. 
+Eventually, benchmarking (coming soon) can help you decide which ```service provider``` is the best for you. 
 
 * For speech-to-text: "assembly", "aws", "whisper"
 * For summarization: "hugging-face", "openai"
@@ -73,7 +73,6 @@ file_location="___local_path___"
 # If your audio files aren't accessible via a URL already, you can upload your audio file using this API
 upload_url= speect_to_text.upload_audio(file_location)
 
-
 # choose your service provider: "assembly", "aws", "whisper"
 # transcribe
 transcribe_id= speect_to_text.transcribe(upload_url,service_provider="aws")
@@ -87,6 +86,7 @@ print(text)
 summarize = slashml.Summarization()
 # Summarize
 summarize_id= summarize.summarize(text,service_provider="hugging-face")
+
 # Wait a while, then run 
 summary=summarize.status(job_id=summarize_id,service_provider="hugging-face")
 print(summary)
