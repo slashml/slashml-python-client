@@ -1,5 +1,10 @@
 # SlashML Python client
 [SlashML](https://www.slashml.com/)
+
+Do you wanna use State-of-the-art machine learning models with few clicks, without going through a lot of documentation and through many service providers? At SlashML we guarantee the best ML model for your application through our API. We do the benchmarking for you and offer you the best results all in one API call.
+
+
+
 # Introduction
 ## Overview 
 This is a Python client (SDK) for SlashML. It allows the user to use the AI-based apps available and active in [SlashML-Dashboard](https://www.slashml.com/dashboard). 
