@@ -3,7 +3,7 @@
 
 Do you wanna use State-of-the-art machine learning models with few clicks, without going through a lot of documentation and through many service providers? At SlashML we guarantee the best ML model for your application through our API. We do the benchmarking for you and offer you the best results all in one API call.
 
-
+Supported apps so far: speech-to-text, Summarization
 
 # Introduction
 ## Overview 
