@@ -56,8 +56,8 @@ print(summary)
 
 # Introduction
 ## Overview 
-This is a Python client (SDK) for SlashML. It allows the user to use the AI-based APIs available and active in [SlashML-Dashboard](https://www.slashml.com/dashboard). 
-The apps can be used together in the same code as long the input/output structure is compatible. For example, if the user wants to transcribe an audio file and get a summary, they can call speechtotext followed by summarization (speech>text>summary), see [Tutorial](##Quickstart-tutorial).
+This is a Python client (SDK) for SlashML. It allows the user to use the endpoints available and active in [SlashML-Dashboard](https://www.slashml.com/dashboard). 
+The APIs can be used together in the same code as long the input/output structure is compatible. For example, if the user wants to transcribe an audio file and get a summary, they can call speechtotext followed by summarization (speech>text>summary), see [Tutorial](##Quickstart-tutorial).
 
 State-of-the-art AI models from several service providers are available. At SlashML, we also do the benchmarking on these models for the user. This will give them an idea of the best service provider for their application. For the full list of the available models through SlashML, go to section Available service providers. Click [here](##Availlable-service-providers)
 

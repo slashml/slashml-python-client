@@ -65,7 +65,11 @@ class SpeechToText:
 
         # Check the status code of the response
         if response.status_code == 200:
-            return response.json()["transcription_data"]
+            if response.json()["status"]=="IN_PROGRESS":
+                return "Transcription is still in progress"
+            elif response.json()["status"]=="COMPLETED":
+                return response.json()["transcription_data"]["transcription"]
+
         else:
             return "ERROR"+ str(response.json())
 
@@ -110,6 +114,10 @@ class Summarization:
         response = requests.get(self.SLASHML_SUMMARIZE_STATUS_URL(job_id) , headers=headers, data=payload)
         # Check the status code of the response
         if response.status_code == 200:
-            return response.json()["summarization_data"]
+            if response.json()["status"]=="IN_PROGRESS":
+                return "Summarization is still in progress"
+            elif response.json()["status"]=="COMPLETED":
+                return response.json()['summarization_data']
+
         else:
             return "ERROR"+ str(response.json())

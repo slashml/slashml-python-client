@@ -19,7 +19,8 @@ transcribe= speect_to_text.transcribe(upload_url,service_provider="aws")
 print(transcribe)
 
 # if name error, wait and re-run again
-text=speect_to_text.status(transcribe["transcription"],service_provider="aws")
+sleep(30)
+text=speect_to_text.status(transcribe,service_provider="aws")
 print(text)
 
 # Import summarization
@@ -27,5 +28,6 @@ summarize = slashml.Summarization()
 # transcribe
 summarize_id= summarize.summarize(text,service_provider="hugging-face")
 # wait a while, then run (name error, wait and re run)
+sleep(25)
 summary=summarize.status(job_id=summarize_id,service_provider="hugging-face")
-print(summary["summary"])
+print(summary)
