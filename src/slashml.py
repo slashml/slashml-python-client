@@ -52,9 +52,6 @@ class SpeechToText:
         # Check the status code of the response
         if response.status_code == 200:
             return response.json()["id"]
-        
-        elif response.status_code == 429:
-            return "THROTTLED"
         else:
             return "ERROR"+ str(response.json())
         
@@ -68,10 +65,7 @@ class SpeechToText:
 
         # Check the status code of the response
         if response.status_code == 200:
-            return response.json()["transcription_data"]["transcription"]
-        
-        elif response.status_code == 429:
-            return "THROTTLED"
+            return response.json()["transcription_data"]
         else:
             return "ERROR"+ str(response.json())
 
@@ -107,8 +101,6 @@ class Summarization:
         # Check the status code of the response
         if response.status_code == 200:
             return response.json()["id"]
-        elif response.status_code == 429:
-            return "THROTTLED"
         else:
             return "ERROR"+ str(response.json())
         
@@ -118,8 +110,6 @@ class Summarization:
         response = requests.get(self.SLASHML_SUMMARIZE_STATUS_URL(job_id) , headers=headers, data=payload)
         # Check the status code of the response
         if response.status_code == 200:
-            return response.json()  #["summarization_data"]["summary_text"]
-        elif response.status_code == 429:
-            return "THROTTLED"
+            return response.json()["summarization_data"]
         else:
             return "ERROR"+ str(response.json())
