@@ -38,16 +38,16 @@ upload_url= speect_to_text.upload_audio(file_location)
 transcribe_id= speect_to_text.transcribe(upload_url,service_provider="aws")
 print(transcribe_id)
 
-# Wait and run again
-text=speect_to_text.status(transcribe_id,service_provider="aws")
+sleep(30)
+text=speect_to_text.status(transcribe,service_provider="aws")
 print(text)
 
 # Import summarization
 summarize = slashml.Summarization()
-# Summarize
+# summarize
 summarize_id= summarize.summarize(text,service_provider="hugging-face")
-
-# Wait a while, then run 
+# wait a while, then run (name error, wait and re run)
+sleep(25)
 summary=summarize.status(job_id=summarize_id,service_provider="hugging-face")
 print(summary)
 
