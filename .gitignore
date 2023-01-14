@@ -1,2 +1,2 @@
-.DS_Store
-services.py
+git rm --cached .DS_Store
+/src/test_slashml.py
