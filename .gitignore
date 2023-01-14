@@ -1,2 +1,2 @@
-.DS_Store
-services.py
+__pycache__
+test_slashml.py
