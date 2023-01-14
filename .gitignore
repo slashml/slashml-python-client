@@ -1,3 +1,2 @@
-$ git rm --cached .DS_Store
-
-src/test_slashml.py
+__pycache__/
+src/test_slashml.py/
