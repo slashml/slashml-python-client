@@ -8,7 +8,7 @@ Supported apps so far: speech-to-text, Summarization
 
 # Quickstart tutorial 
 
-In this tutorial, we use slashml sdk to call speechtotext followed by summarization of the output of speechtotext. All the user needs is an audio URL that can be used directly as ```upload_url```  or a local path to the audio file, preferrably ```.mp3```. The user can also set their ```SLASHML_API_KEY``` and not be blocked by certain throttling limits.
+In this tutorial, we use slashml sdk to call speechtotext followed by summarization of the output of speechtotext. All the user needs is an audio URL that can be used directly as ```upload_url```  or a local path to the audio file, preferrably ```.mp3```. The user can also set their ```SLASHML_API_KEY``` and not be blocked by certain throttling limits. You will need to include the python file `src/slashml.py` in your working directory, also make sure the list of packages in `src/requirements.txt` is installed.
 
 Benchmarking can help you decide which ```service provider``` is the best for you. 
 
