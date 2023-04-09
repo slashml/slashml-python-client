@@ -3,6 +3,8 @@ import os
 from pathlib import Path
 import json
 
+from json_to_dot import edict
+
 class SpeechToText:
 
     SLASHML_BASE_URL = 'https://api.slashml.com/speech-to-text/v1'
@@ -27,33 +29,31 @@ class SpeechToText:
             self.HEADERS=None 
             print("No API key provided, there are limits to the usage.")
 
-    def upload_audio(self, file_location:str,header=None):
+    def upload_audio(self, file_location:str, header=None):
         headers = self.HEADERS
+
         files=[
-        ('audio',('test_audio.mp3',open(file_location,'rb'),'audio/mpeg'))
+            ('audio',('test_audio.mp3',open(file_location,'rb'),'audio/mpeg'))
         ]
+
         response = requests.post(self.SLASHML_UPLOAD_URL,
                                 headers=headers,files=files)
-
-        if response.status_code == 200:
-            return response.json()["upload_url"]
-        else:
-            return "ERROR"+ str(response.json())
         
-    def transcribe(self,upload_url:str,  service_provider: str,header=None ):
+        return edict(response.json())
 
-        transcript_request = {'audio_url': upload_url}
+        
+    def transcribe(self, upload_url:str, service_provider: str, header = None ):
         headers = self.HEADERS
+
         payload = {
-        "uploaded_audio_url": upload_url,
-        "service_provider": service_provider
+            "uploaded_audio_url": upload_url,
+            "service_provider": service_provider
         }
+
         response = requests.post(self.SLASHML_TRANSCRIPT_URL, headers=headers, data=payload)
+
         # Check the status code of the response
-        if response.status_code == 200:
-            return response.json()["id"]
-        else:
-            return "ERROR"+ str(response.json())
+        return edict(response.json())
         
     def status(self,job_id:str, service_provider: str ,header=None):
         headers = self.HEADERS
@@ -63,15 +63,7 @@ class SpeechToText:
        
         response = requests.get(self.SLASHML_TRANSCRIPT_STATUS_URL(job_id) , headers=headers, data=payload)
 
-        # Check the status code of the response
-        if response.status_code == 200:
-            if response.json()["status"]=="IN_PROGRESS":
-                return "Transcription is still in progress"
-            elif response.json()["status"]=="COMPLETED":
-                return response.json()["transcription_data"]["transcription"]
-
-        else:
-            return "ERROR"+ str(response.json())
+        return edict(response.json())
 
 class Summarization:
     SLASHML_SUMMARIZATION_URL = 'https://api.slashml.com/summarization/v1'

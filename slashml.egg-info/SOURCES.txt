@@ -1,0 +1,7 @@
+README.md
+setup.py
+slashml.egg-info/PKG-INFO
+slashml.egg-info/SOURCES.txt
+slashml.egg-info/dependency_links.txt
+slashml.egg-info/requires.txt
+slashml.egg-info/top_level.txt
