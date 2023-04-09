@@ -1,1 +1,1 @@
-from src.slashml import SpeechToText
+from src.slashml import SpeechToText # noqa: F401,E402
