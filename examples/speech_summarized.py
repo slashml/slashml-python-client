@@ -1,14 +1,13 @@
 
-from slashml import SpeechToText, Summarization, TextToSpeech
+from slashml import SpeechToText, Summarization
 import time
 
 # Initialize your model
-model = SpeechToText("e33f38aebe7120930fbd8488ab738b321b647840")
-# model = SpeechToText()
+model = SpeechToText()
 
 service_provider = model.ServiceProvider.AWS
 
-# long audio file uploaded
+# long audio file already uploaded
 upload_url = 'https://slashml.s3.ca-central-1.amazonaws.com/fda70f6a-6057-4541-adf1-2cf4f4182929'
 
 # # choose a service provider and transcribe
@@ -34,7 +33,7 @@ text_to_summarize = response.transcription_data.transcription
 
 print('summarizing text', text_to_summarize)
 
-model:Summarization = Summarization("e33f38aebe7120930fbd8488ab738b321b647840")
+model:Summarization = Summarization()
 service_provider = model.ServiceProvider.OPENAI
 
 print('summarizing text')

@@ -4,10 +4,11 @@ import requests
 
 from .json_to_dot import edict
 
+
 class TextToSpeech:
     class ServiceProvider(Enum):
-        GOOGLE = 'google'
-        AWS = 'aws'
+        GOOGLE = "google"
+        AWS = "aws"
 
         @classmethod
         def choices(cls):
@@ -54,11 +55,18 @@ class TextToSpeech:
 
         return edict(response.json())
 
-    def status(self:"TextToSpeech", job_id: str, service_provider: ServiceProvider, header=None):
+    def status(
+        self: "TextToSpeech",
+        job_id: str,
+        service_provider: ServiceProvider,
+        header=None,
+    ):
         headers = self.HEADERS
         params = {"service_provider": service_provider.value}
         response = requests.get(
-            self.SLASHML_SPEECHIFICATION_STATUS_URL(job_id), headers=headers, params=params
+            self.SLASHML_SPEECHIFICATION_STATUS_URL(job_id),
+            headers=headers,
+            params=params,
         )
 
         # Check the status code of the response
@@ -68,4 +76,3 @@ class TextToSpeech:
             return edict({"status": "ERROR", "reason": response.json()})
 
         return edict(response.json())
-

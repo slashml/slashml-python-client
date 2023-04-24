@@ -5,11 +5,12 @@ from .json_to_dot import edict
 
 from enum import Enum
 
+
 class SpeechToText:
     class ServiceProvider(Enum):
-        ASSEMBLY = 'assembly'
-        AWS = 'aws'
-        WHISPER = 'whisper'
+        ASSEMBLY = "assembly"
+        AWS = "aws"
+        WHISPER = "whisper"
 
         @classmethod
         def choices(cls):
@@ -54,7 +55,9 @@ class SpeechToText:
 
         return edict(response.json())
 
-    def transcribe(self, upload_url: str, service_provider: ServiceProvider, header=None):
+    def transcribe(
+        self, upload_url: str, service_provider: ServiceProvider, header=None
+    ):
         headers = self.HEADERS
 
         payload = {
@@ -92,8 +95,8 @@ class SpeechToText:
 
 class Summarization:
     class ServiceProvider(Enum):
-        HUGGING_FACE = 'hugging-face'
-        OPENAI = 'openai'
+        HUGGING_FACE = "hugging-face"
+        OPENAI = "openai"
 
         @classmethod
         def choices(cls):

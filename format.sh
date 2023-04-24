@@ -1,2 +1,2 @@
 echo "-------BLACK---------"
-black *.py src
+black *.py slashml

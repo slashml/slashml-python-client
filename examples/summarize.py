@@ -3,7 +3,7 @@ from slashml import Summarization
 import time
 
 # Initialize your model
-model = Summarization("e33f38aebe7120930fbd8488ab738b321b647840")
+model = Summarization()
 # model = Summarization()
 service_provider = model.ServiceProvider.OPENAI
 
