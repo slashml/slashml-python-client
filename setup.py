@@ -16,7 +16,7 @@ setup(
     description=(
         "A Python client for interacting with SlashML services" "Developed by SlashML."
     ),
-    packages=find_packages('slashml'),
+    packages=find_packages("slashml"),
     install_requires=read_req_file("install"),
     license="MIT",
     python_requires=">=3.6",

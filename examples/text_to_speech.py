@@ -2,7 +2,7 @@
 from slashml import TextToSpeech
 
 # Initialize your model
-model = TextToSpeech("e33f38aebe7120930fbd8488ab738b321b647840")
+model = TextToSpeech()
 # model = SpeechToText()
 
 service_provider = model.ServiceProvider.AWS

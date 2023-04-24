@@ -2,7 +2,7 @@ from slashml.slashml import SpeechToText
 import time
 
 # Initialize your model
-model = SpeechToText("e33f38aebe7120930fbd8488ab738b321b647840")
+model = SpeechToText()
 # model = SpeechToText()
 
 service_provider = model.ServiceProvider.ASSEMBLY
