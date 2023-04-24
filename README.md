@@ -139,3 +139,8 @@ For speechification, SlashML supports the following service providers:
 
 * [Google](https://cloud.google.com/text-to-speech/docs/apis)
 * [AWS](https://docs.aws.amazon.com/polly/index.html) 
+
+
+## Documentation
+
+For use cases, look at the `examples` folder. For detail documentation, checkout the (REFERENCE.md)[https://github.com/slashml/slashml-python-client/blob/main/REFERENCE.md]
