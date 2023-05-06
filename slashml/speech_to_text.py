@@ -3,24 +3,34 @@ from enum import Enum
 from .utils.common import generateURL, baseUrl, generateHeaders, formatResponse, getTaskStatus
 
 
-class TextToSpeech:
+class SpeechToText:
     class ServiceProvider(Enum):
-        GOOGLE = "google"
+        ASSEMBLY = "assembly"
         AWS = "aws"
+        WHISPER = "whisper"
 
         @classmethod
         def choices(cls):
             return [key.value for key in cls]
 
-    _base_url = baseUrl("text-to-speech", "v1")
+    _base_url = baseUrl("speech-to-text", "v1")
     _headers = None
 
     def __init__(self, api_key: str):
         self._headers = generateHeaders(api_key)
 
-    def speechify(self, text: str, service_provider: ServiceProvider):
+    def upload_audio(self, file_location: str):
+        url = generateURL(self._base_url, "upload")
+        files = [("audio", ("test_audio.mp3", open(file_location, "rb"), "audio/mpeg"))]
+        response = requests.post(url, headers=self._headers, files=files)
+        return formatResponse(response)
+
+    def transcribe(self, upload_url: str, service_provider: ServiceProvider):
         url = generateURL(self._base_url, "jobs")
-        payload = {"text": text, "service_provider": service_provider.value}
+        payload = {
+            "uploaded_audio_url": upload_url,
+            "service_provider": service_provider.value,
+        }
         response = requests.post(url, headers=self._headers, data=payload)
         return formatResponse(response)
 
