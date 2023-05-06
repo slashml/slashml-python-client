@@ -15,7 +15,7 @@ class TextToSpeech:
     _base_url = baseUrl("text-to-speech", "v1")
     _headers = None
 
-    def __init__(self, api_key: str):
+    def __init__(self, api_key: str = None):
         self._headers = generateHeaders(api_key)
 
     def speechify(self, text: str, service_provider: ServiceProvider):

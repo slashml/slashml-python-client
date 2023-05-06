@@ -16,7 +16,7 @@ class SpeechToText:
     _base_url = baseUrl("speech-to-text", "v1")
     _headers = None
 
-    def __init__(self, api_key: str):
+    def __init__(self, api_key: str = None):
         self._headers = generateHeaders(api_key)
 
     def upload_audio(self, file_location: str):
