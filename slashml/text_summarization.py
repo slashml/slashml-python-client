@@ -25,3 +25,4 @@ class TextSummarization:
 
     def status(self, job_id: str, service_provider: ServiceProvider):
         return getTaskStatus(self._base_url, self._headers, job_id, service_provider)
+        
