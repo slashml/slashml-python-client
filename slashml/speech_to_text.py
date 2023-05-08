@@ -1,6 +1,6 @@
 import requests
 from enum import Enum
-from .utils.common import generateURL, baseUrl, generateHeaders, formatResponse, getTaskStatus
+from .utils import generateURL, baseUrl, generateHeaders, formatResponse, getTaskStatus
 
 
 class SpeechToText:
