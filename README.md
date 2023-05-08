@@ -1,17 +1,47 @@
 # SlashML Python client
 [SlashML](https://www.slashml.com/)
 
-Do you want to use state-of-the-art machine learning models with few clicks, without going through a lot of documentation and through many service providers? At SlashML we guarantee the best ML model for your application through our API. We do the benchmarking for you and offer you the best results all in one API call.
-
-Supported services so far: speech-to-text, Summarization, text-to-speech
+One API for all your machine learning needs.
 
 # Installation guide
 
-To install this packaged, clone this repository by running `git@github.com:slashml/slashml-python-client.git` in the terminal. This command will clone this repo. Then `cd slashml-python-client` to get into the cloned repository. Then install the repo as a pip package by running `pip install -e .`.
+```
+pip install slashml
+```
+
+# Quickstart
+
+#### Transcribe an audio file
+<!-- write a code snippet in the minimum number of lines  -->
+
+```python
+from slashml import SpeechToText
+
+# Initialize model
+model = SpeechToText()
+
+# Submit transcription request
+job = model.transcribe(, service_provider=SpeechToText.ServiceProvider.WHISPER)
+
+assert job.status != "ERROR", f"{job}"
+print(f"Job ID: {job.id}")
+
+# check job status
+response = model.status(job.id, service_provider=service_provider)
+
+while response.status == "IN_PROGRESS":
+    time.sleep(30)
+    response = model.status(job.id, service_provider=service_provider)
+    print(f"Response = {response}. Retrying in 30 seconds")
+
+return response
+
+
+```
 
 # Quickstart tutorial 
 
-**Note** : make sure slashml is installed as a pip package. 
+**Note** : Make sure slashml is installed as a pip package. 
 
 In this tutorial, we use slashml sdk to call speechtotext followed by summarization of the output of speechtotext. All the user needs is an audio URL that can be used directly as ```upload_url```  or a local path to the audio file, preferrably ```.mp3```. The user can also set their ```SLASHML_API_KEY``` and not be blocked by certain throttling limits.
 
