@@ -11,67 +11,12 @@ pip install slashml
 
 # Quickstart
 
-#### Transcribe an audio file
-<!-- write a code snippet in the minimum number of lines  -->
-
-```python
-from slashml import SpeechToText
-
-# Initialize model
-model = SpeechToText()
-
-service_provider = SpeechToText.ServiceProvider.ASSEMBLY
-# Submit transcription request
-job = model.transcribe(upload_url="https://slashml.s3.ca-central-1.amazonaws.com/c7d38026-3ab4-4a04-ad9e-b6679ab79a87", service_provider=service_provider)
-
-assert job.status != "ERROR", f"{job}"
-print(f"Job ID: {job.id}")
-
-# check job status
-response = model.status(job.id, service_provider=service_provider)
-
-while response.status == "IN_PROGRESS":
-    time.sleep(30)
-    response = model.status(job.id, service_provider=service_provider)
-    print(f"Response = {response}. Retrying in 30 seconds")
-
-return response
-```
-
-#### Summarize a text input
-<!-- write a code snippet in the minimum number of lines  -->
-
-```python
-from slashml import TextSummarization
-
-# Initialize model
-model = TextSummarization()
-
-service_provider = TextSummarization.ServiceProvider.OPENAI
-
-# Submit summariztion request
-job = model.summarize(text="This is my input text that I want to summarize", service_provider=service_provider)
-
-assert job.status != "ERROR", f"{job}"
-print(f"Job ID: {job.id}")
-
-# check job status
-response = model.status(job.id, service_provider=service_provider)
-
-while response.status == "IN_PROGRESS":
-    time.sleep(30)
-    response = model.status(job.id, service_provider=service_provider)
-    print(f"Response = {response}. Retrying in 30 seconds")
-
-return response
-```
-
-
 #### Convert text to audio
 <!-- write a code snippet in the minimum number of lines  -->
 
 ```python
 from slashml import TextToSpeech
+import time
 
 # Initialize model
 model = TextToSpeech()
@@ -92,8 +37,68 @@ while response.status == "IN_PROGRESS":
     response = model.status(job.id, service_provider=service_provider)
     print(f"Response = {response}. Retrying in 30 seconds")
 
-return response
+print(response)
 ```
+
+#### Transcribe an audio file
+<!-- write a code snippet in the minimum number of lines  -->
+
+```python
+from slashml import SpeechToText
+import time
+
+# Initialize model
+model = SpeechToText()
+
+service_provider = SpeechToText.ServiceProvider.WHISPER
+# Submit transcription request
+job = model.transcribe(upload_url="https://slashml.s3.ca-central-1.amazonaws.com/c7d38026-3ab4-4a04-ad9e-b6679ab79a87", service_provider=service_provider)
+
+assert job.status != "ERROR", f"{job}"
+print(f"Job ID: {job.id}")
+
+# check job status
+response = model.status(job.id, service_provider=service_provider)
+
+while response.status == "IN_PROGRESS":
+    time.sleep(5)
+    response = model.status(job.id, service_provider=service_provider)
+    print(f"Response = {response}. Retrying in 5 seconds")
+
+print(response)
+```
+
+#### Summarize a text input
+<!-- write a code snippet in the minimum number of lines  -->
+
+```python
+from slashml import TextSummarization
+import time
+
+# Initialize model
+model = TextSummarization()
+
+service_provider = TextSummarization.ServiceProvider.OPENAI
+
+# Submit summariztion request
+job = model.summarize(text="There are of course kinds of thinking that can be done without writing. If you don't need to go too deeply into a problem, you can solve it without writing. If you're thinking about how two pieces of machinery should fit together, writing about it probably won't help much. And when a problem can be described formally, you can sometimes solve it in your head. But if you need to solve a complicated, ill-defined problem, it will almost always help to write about it. Which in turn means that someone who's not good at writing will almost always be at a disadvantage in solving such problems.", service_provider=service_provider)
+
+assert job.status != "ERROR", f"{job}"
+print(f"Job ID: {job.id}")
+
+# check job status
+response = model.status(job.id, service_provider=service_provider)
+
+while response.status == "IN_PROGRESS":
+    time.sleep(5)
+    response = model.status(job.id, service_provider=service_provider)
+    print(f"Response = {response}. Retrying in 5 seconds")
+
+print(response)
+```
+
+
+
 
 ### View the list of service providers available
 

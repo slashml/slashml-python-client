@@ -11,14 +11,15 @@ def read_req_file(req_type):
 
 setup(
     name="slashml",
-    version="0.1.1",
+    version="0.0.4",
     url="https://slashml.com/",
     author="eff-kay",
     author_email="faiizan14@gmail.com",
     description=(
         "A Python client for interacting with SlashML services" "Developed by SlashML."
     ),
-    packages=find_packages("slashml"),
+    packages=find_packages("."),
+    package_dir={"": "."},
     install_requires=read_req_file("install"),
     license="MIT",
     python_requires=">=3.6",
