@@ -8,6 +8,9 @@ def read_req_file(req_type):
         requires = (line.strip() for line in fp)
         return [req for req in requires if req and not req.startswith("#")]
 
+# Read the contents of the README file
+with open("README.md", "r") as fh:
+    long_description = fh.read()
 
 setup(
     name="slashml",
@@ -18,6 +21,7 @@ setup(
     description=(
         "A Python client for interacting with SlashML services" "Developed by SlashML."
     ),
+    long_description=long_description,  # Use the contents of the README file
     packages=find_packages("."),
     package_dir={"": "."},
     install_requires=read_req_file("install"),
