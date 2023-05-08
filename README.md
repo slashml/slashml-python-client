@@ -113,7 +113,7 @@ print(TextToSpeech.ServiceProvider.choices())
 
 ## Overview 
 
-This is the Python client (SDK) for SlashML. It allows users to use the endpoints available and active in the marketplace [marketplace](docs.slashml.com).
+This is the Python client (SDK) for SlashML. It allows users to use the endpoints available and active https://docs.slashml.com.
 
 ## Set up and usage
 There is a daily limit (throttling) on the number of calls the user performs. The code can run without specifying the API key. The throttling kicks in and prevents new jobs after exceeding 10 calls per minute. 
