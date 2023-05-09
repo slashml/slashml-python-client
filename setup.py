@@ -14,7 +14,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="slashml",
-    version="0.0.4",
+    version="0.0.5",
     url="https://slashml.com/",
     author="eff-kay",
     author_email="faiizan14@gmail.com",
@@ -22,6 +22,7 @@ setup(
         "A Python client for interacting with SlashML services" "Developed by SlashML."
     ),
     long_description=long_description,  # Use the contents of the README file
+    long_description_content_type="text/markdown",  # Set the type of the README file
     packages=find_packages("."),
     package_dir={"": "."},
     install_requires=read_req_file("install"),

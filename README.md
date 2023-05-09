@@ -33,9 +33,9 @@ print(f"Job ID: {job.id}")
 response = model.status(job.id, service_provider=service_provider)
 
 while response.status == "IN_PROGRESS":
-    time.sleep(30)
+    time.sleep(5)
     response = model.status(job.id, service_provider=service_provider)
-    print(f"Response = {response}. Retrying in 30 seconds")
+    print(f"Response = {response}. Retrying in 5 seconds")
 
 print(response)
 ```
