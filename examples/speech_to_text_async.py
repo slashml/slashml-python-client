@@ -1,6 +1,7 @@
 from slashml import SpeechToText
 import time
 
+# update the examples using execute from the SpeechToText class
 
 def speech_to_text(audio_filepath, service_provider, api_key):
     # Initialize model

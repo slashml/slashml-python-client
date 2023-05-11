@@ -1,4 +1,5 @@
 import requests
+import time
 from enum import Enum
 from .utils import generateURL, baseUrl, generateHeaders, formatResponse, getTaskStatus
 
@@ -25,7 +26,7 @@ class SpeechToText:
         response = requests.post(url, headers=self._headers, files=files)
         return formatResponse(response)
 
-    def transcribe(self, upload_url: str, service_provider: ServiceProvider):
+    def submit_job(self, upload_url: str, service_provider: ServiceProvider):
         url = generateURL(self._base_url, "jobs")
         payload = {
             "uploaded_audio_url": upload_url,
@@ -36,3 +37,30 @@ class SpeechToText:
 
     def status(self, job_id: str, service_provider: ServiceProvider):
         return getTaskStatus(self._base_url, self._headers, job_id, service_provider)
+
+    def execute(self, upload_url: str, service_provider: ServiceProvider):
+        url = generateURL(self._base_url, "jobs")
+
+        payload = {
+            "uploaded_audio_url": upload_url,
+            "service_provider": service_provider.value,
+        }
+
+        response = requests.post(url, headers=self._headers, data=payload)
+        job = formatResponse(response)
+
+        assert job.status != "ERROR", f"{job}"
+        print(f"Got Job ID: {job.id}")
+        
+        # check job status
+        response = getTaskStatus(self._base_url, self._headers, job.id, service_provider)
+
+        import pdb
+        pdb.set_trace()
+        while response.status == "IN_PROGRESS":
+            time.sleep(5)
+            response = getTaskStatus(self._base_url, self._headers, job.id, service_provider)
+            print(f"Response = {response}. Retrying in 5 seconds")
+
+        return response
+    
