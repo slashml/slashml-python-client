@@ -55,8 +55,6 @@ class SpeechToText:
         # check job status
         response = getTaskStatus(self._base_url, self._headers, job.id, service_provider)
 
-        import pdb
-        pdb.set_trace()
         while response.status == "IN_PROGRESS":
             time.sleep(5)
             response = getTaskStatus(self._base_url, self._headers, job.id, service_provider)
