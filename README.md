@@ -16,28 +16,17 @@ pip install slashml
 
 ```python
 from slashml import TextToSpeech
-import time
 
-# Initialize model
-model = TextToSpeech()
+# Replace `API_KEY` with your SlasML API token. This example still runs without
+# the API token but usage will be limited
+model = TextToSpeech(api_key=None)
 
-service_provider = TextToSpeech.ServiceProvider.GOOGLE
+input_text = "to be or not to be, that is the question!"
 
-# Submit speechification request
-job = model.speechify(text="To be or not to be, that is the question!", service_provider=service_provider)
+# Submit request
+job = model.execute(text=input_text, service_provider=TextToSpeech.ServiceProvider.AWS)
 
-assert job.status != "ERROR", f"{job}"
-print(f"Job ID: {job.id}")
-
-# check job status
-response = model.status(job.id, service_provider=service_provider)
-
-while response.status == "IN_PROGRESS":
-    time.sleep(5)
-    response = model.status(job.id, service_provider=service_provider)
-    print(f"Response = {response}. Retrying in 5 seconds")
-
-print(response)
+print (f"\n\n\n You can access the audio file here: {job.audio_url}")
 ```
 
 #### Transcribe an audio file
@@ -45,27 +34,18 @@ print(response)
 
 ```python
 from slashml import SpeechToText
-import time
 
-# Initialize model
-model = SpeechToText()
+# Replace `API_KEY` with your SlasML API token. This example still runs without
+# the API token but usage will be limited
+model = SpeechToText(api_key=None)
 
-service_provider = SpeechToText.ServiceProvider.WHISPER
-# Submit transcription request
-job = model.transcribe(upload_url="https://slashml.s3.ca-central-1.amazonaws.com/c7d38026-3ab4-4a04-ad9e-b6679ab79a87", service_provider=service_provider)
+response = model.execute(
+    upload_url='https://slashml.s3.ca-central-1.amazonaws.com/695c711f-9f5d-4ff1-ae4f-4439842eef5f', 
+    service_provider=SpeechToText.ServiceProvider.WHISPER
+)
 
-assert job.status != "ERROR", f"{job}"
-print(f"Job ID: {job.id}")
+print(f"\n\n\n\nTranscription = {response.transcription_data.transcription}")
 
-# check job status
-response = model.status(job.id, service_provider=service_provider)
-
-while response.status == "IN_PROGRESS":
-    time.sleep(5)
-    response = model.status(job.id, service_provider=service_provider)
-    print(f"Response = {response}. Retrying in 5 seconds")
-
-print(response)
 ```
 
 #### Summarize a text input
@@ -73,35 +53,19 @@ print(response)
 
 ```python
 from slashml import TextSummarization
-import time
 
-# Initialize model
-model = TextSummarization()
+model = TextSummarization(api_key=None)
 
-service_provider = TextSummarization.ServiceProvider.OPENAI
+input_text = """A good writer doesn't just think, and then write down what he thought, as a sort of transcript. A good writer will almost always discover new things in the process of writing. And there is, as far as I know, no substitute for this kind of discovery. Talking about your ideas with other people is a good way to develop them. But even after doing this, you'll find you still discover new things when you sit down to write. There is a kind of thinking that can only be done by writing."""
 
-# Submit summariztion request
-job = model.summarize(text="There are of course kinds of thinking that can be done without writing. If you don't need to go too deeply into a problem, you can solve it without writing. If you're thinking about how two pieces of machinery should fit together, writing about it probably won't help much. And when a problem can be described formally, you can sometimes solve it in your head. But if you need to solve a complicated, ill-defined problem, it will almost always help to write about it. Which in turn means that someone who's not good at writing will almost always be at a disadvantage in solving such problems.", service_provider=service_provider)
+response = model.execute(text=input_text, service_provider=TextSummarization.ServiceProvider.OPENAI)
 
-assert job.status != "ERROR", f"{job}"
-print(f"Job ID: {job.id}")
+print(f"Summary = {response.summarization_data}")
 
-# check job status
-response = model.status(job.id, service_provider=service_provider)
-
-while response.status == "IN_PROGRESS":
-    time.sleep(5)
-    response = model.status(job.id, service_provider=service_provider)
-    print(f"Response = {response}. Retrying in 5 seconds")
-
-print(response)
 ```
 
 
-
-
 ### View the list of service providers available
-
 ```python
 from slashml import TextToSpeech
 
