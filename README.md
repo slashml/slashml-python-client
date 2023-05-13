@@ -109,9 +109,11 @@ If the user preferes using the API calls directly, the documentation is availabl
 ### Speech-to-text
 For transcription, SlashML supports the following service providers:
 
-* [AssemblyAI](https://github.com/AssemblyAI)
+* [AssemblyAI](https://www.assemblyai.com/)
 * [AWS](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html) 
 * Whisper ([OpenAI](https://openai.com/blog/whisper/))
+* [GOOGLE](https://cloud.google.com/speech-to-text)
+* [DEEPGRAM](https://deepgram.com/) 
 
 ### Summarization
 For text summarization, SlashML supports the following service providers:
