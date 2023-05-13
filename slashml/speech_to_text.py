@@ -10,6 +10,7 @@ class SpeechToText:
         AWS = "aws"
         WHISPER = "whisper"
         DEEPGRAM = 'deepgram'
+        GOOGLE = 'google'
 
         @classmethod
         def choices(cls):
