@@ -2,6 +2,14 @@
 All notable changes to `slashml-python-client` aka `slashml` will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 0.0.7 - 2023-05-11
+
+### Added
+- Added deepgram model for SpeechToText service
+
+### Fixed
+- Fixed a bug in examples by replacing verbs with  `submit_job`
+
 ## 0.0.6 - 2023-05-11
 
 ### Changed
