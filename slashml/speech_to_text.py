@@ -9,6 +9,7 @@ class SpeechToText:
         ASSEMBLY = "assembly"
         AWS = "aws"
         WHISPER = "whisper"
+        DEEPGRAM = 'deepgram'
 
         @classmethod
         def choices(cls):
@@ -55,10 +56,10 @@ class SpeechToText:
         # check job status
         response = getTaskStatus(self._base_url, self._headers, job.id, service_provider)
 
-        while response.status == "IN_PROGRESS":
-            time.sleep(5)
-            response = getTaskStatus(self._base_url, self._headers, job.id, service_provider)
-            print(f"Response = {response}. Retrying in 5 seconds")
+        # while response.status == "IN_PROGRESS":
+        time.sleep(5)
+        response = getTaskStatus(self._base_url, self._headers, job.id, service_provider)
+        print(f"Response = {response}. Retrying in 5 seconds")
 
         return response
     
