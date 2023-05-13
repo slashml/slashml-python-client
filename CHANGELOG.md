@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Added
 - Added deepgram model for SpeechToText service
+- Added gcp model for SpeechToText service
 
 ### Fixed
 - Fixed a bug in examples by replacing verbs with  `submit_job`
