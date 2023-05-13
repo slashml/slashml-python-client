@@ -114,6 +114,7 @@ For transcription, SlashML supports the following service providers:
 * Whisper ([OpenAI](https://openai.com/blog/whisper/))
 * [GOOGLE](https://cloud.google.com/speech-to-text)
 * [DEEPGRAM](https://deepgram.com/) 
+* [REV](https://www.rev.com/services/auto-audio-transcription) 
 
 ### Summarization
 For text summarization, SlashML supports the following service providers:
