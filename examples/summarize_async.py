@@ -6,7 +6,7 @@ def summarize(text, service_provider, api_key):
     model = TextSummarization(api_key=api_key)
 
     # Submit request
-    job = model.summarize(text=text, service_provider=service_provider)
+    job = model.submit_job(text=text, service_provider=service_provider)
 
     assert job.status != "ERROR", f"{job}"
     print(f"Job ID: {job.id}")
