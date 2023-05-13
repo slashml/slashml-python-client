@@ -11,6 +11,7 @@ class SpeechToText:
         WHISPER = "whisper"
         DEEPGRAM = 'deepgram'
         GOOGLE = 'google'
+        REV = 'rev'
 
         @classmethod
         def choices(cls):
