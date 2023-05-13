@@ -1,4 +1,5 @@
 from slashml import TextToSpeech
+import time
 
 # Replace `API_KEY` with your SlasML API token. This example still runs without
 # the API token but usage will be limited
@@ -13,7 +14,15 @@ print(f"Selected provider: {service_provider}")
 model = TextToSpeech(api_key=API_KEY)
 
 # Submit request
-job = model.speechify(text=input_text, service_provider=service_provider)
+job = model.submit_job(text=input_text, service_provider=service_provider)
 print(job)
 
-print (f"\nYou can access the audio file here: {job.audio_url}")
+# check job status
+response = model.status(job.id, service_provider=service_provider)
+
+while response.status == "IN_PROGRESS":
+    print(f"Response = {response}. Retrying in 30 seconds")
+    time.sleep(30)
+    response = model.status(job.id, service_provider=service_provider)
+
+print (f"\nYou can access the audio file here: {response.audio_url}")

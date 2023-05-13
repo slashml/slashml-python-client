@@ -12,7 +12,7 @@ def speech_to_text(audio_filepath, service_provider, api_key):
     print(f"file uploaded: {uploaded_file}")
 
     # Submit transcription request
-    job = model.transcribe(
+    job = model.submit_job(
         uploaded_file["upload_url"], service_provider=service_provider
     )
 
@@ -33,7 +33,7 @@ def speech_to_text(audio_filepath, service_provider, api_key):
 # Replace `API_KEY` with your SlasML API token. This example still runs without
 # the API token but usage will be limited
 API_KEY = None
-service_provider = SpeechToText.ServiceProvider.ASSEMBLY
+service_provider = SpeechToText.ServiceProvider.DEEPGRAM
 audio_filepath = "test.mp3"
 
 # Find all the service providers that we support by running the choices() method
