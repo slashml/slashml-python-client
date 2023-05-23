@@ -1,7 +1,11 @@
 from setuptools import setup, find_packages
 
 import os
-SLASHML_DIR = os.environ['SLASHML_DIR']
+try:
+    SLASHML_DIR = os.environ['SLASHML_DIR']
+except:
+    print('using the current directory as root for build')
+    SLASHML_DIR = f'{os.getcwd()}/'
 
 def read_req_file(req_type):
     with open(f"{SLASHML_DIR}requires-{req_type}.txt") as fp:  # pylint: disable=W1514

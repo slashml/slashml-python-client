@@ -5,6 +5,7 @@ from .utils import generateURL, baseUrl, generateHeaders, formatResponse, getTas
 
 
 class SpeechToText:
+    """Speech to Text Service """
     class ServiceProvider(Enum):
         ASSEMBLY = "assembly"
         AWS = "aws"
@@ -24,12 +25,14 @@ class SpeechToText:
         self._headers = generateHeaders(api_key)
 
     def upload_audio(self, file_location: str):
+        """Upload audio to server"""
         url = generateURL(self._base_url, "upload")
         files = [("audio", ("test_audio.mp3", open(file_location, "rb"), "audio/mpeg"))]
         response = requests.post(url, headers=self._headers, files=files)
         return formatResponse(response)
 
     def submit_job(self, upload_url: str, service_provider: ServiceProvider):
+        """Submit job"""
         url = generateURL(self._base_url, "jobs")
         payload = {
             "uploaded_audio_url": upload_url,
@@ -39,9 +42,11 @@ class SpeechToText:
         return formatResponse(response)
 
     def status(self, job_id: str, service_provider: ServiceProvider):
+        """Check job status"""
         return getTaskStatus(self._base_url, self._headers, job_id, service_provider)
 
     def execute(self, upload_url: str, service_provider: ServiceProvider):
+        """Waits for the job to be completed before returning a response"""
         url = generateURL(self._base_url, "jobs")
 
         payload = {
