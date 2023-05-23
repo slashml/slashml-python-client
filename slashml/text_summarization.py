@@ -4,6 +4,7 @@ from enum import Enum
 from .utils import generateURL, baseUrl, generateHeaders, formatResponse, getTaskStatus
 
 class TextSummarization:
+    """Text Summarization Service """
     class ServiceProvider(Enum):
         OPENAI = "openai"
         HUGGING_FACE = "hugging-face"
@@ -19,15 +20,18 @@ class TextSummarization:
         self._headers = generateHeaders(api_key)
 
     def submit_job(self, text: str, service_provider: ServiceProvider):
+        """Submit Job to server"""
         url = generateURL(self._base_url, "jobs")
         payload = {"text": [text], "service_provider": service_provider.value}
         response = requests.post(url, headers=self._headers, data=payload)
         return formatResponse(response)
 
     def status(self, job_id: str, service_provider: ServiceProvider):
+        """Check job status"""
         return getTaskStatus(self._base_url, self._headers, job_id, service_provider)
 
     def execute(self, text: str, service_provider: ServiceProvider):
+        """Waits for the job to be completed before returning a response"""
         url = generateURL(self._base_url, "jobs")
         payload = {"text": [text], "service_provider": service_provider.value}
         response = requests.post(url, headers=self._headers, data=payload)
