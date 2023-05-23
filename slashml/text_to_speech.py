@@ -6,6 +6,7 @@ from .utils import generateURL, baseUrl, generateHeaders, formatResponse, getTas
 
 
 class TextToSpeech:
+    """Text To Speech Service """
     class ServiceProvider(Enum):
         GOOGLE = "google"
         AWS = "aws"
@@ -21,15 +22,18 @@ class TextToSpeech:
         self._headers = generateHeaders(api_key)
 
     def submit_job(self, text: str, service_provider: ServiceProvider):
+        """Submit Job to server"""
         url = generateURL(self._base_url, "jobs")
         payload = {"text": text, "service_provider": service_provider.value}
         response = requests.post(url, headers=self._headers, data=payload)
         return formatResponse(response)
 
     def status(self, job_id: str, service_provider: ServiceProvider):
+        """Check job status"""
         return getTaskStatus(self._base_url, self._headers, job_id, service_provider)
     
     def execute(self, text: str, service_provider: ServiceProvider):
+        """Execute Job"""
         url = generateURL(self._base_url, "jobs")
         payload = {"text": text, "service_provider": service_provider.value}
         response = requests.post(url, headers=self._headers, data=payload)

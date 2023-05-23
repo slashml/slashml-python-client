@@ -27,7 +27,7 @@ API Token
 
 There is a daily limit (throttling) on the number of calls the user performs. The code can run without specifying the API key. The throttling kicks in and prevents new jobs after exceeding 10 calls per minute.
 
-If the user intends on using the service more frequently, it is recommended to generate an token or API key from `here <https://www.slashml.com/settings/api-key>`_. You can pass the API key when creating a model, if you don't the API will still work but you will be throttled.
+If the user intends on using the service more frequently, it is recommended to generate a token or API key from `here <https://www.slashml.com/settings/api-key>`_. You can pass the API key when creating a model, if you don't the API will still work but you will be throttled.
 
 
 Services
@@ -61,17 +61,28 @@ Deploying Examples
 Reference Docs
 ---------------
 
-| Full documentation on all methods and classes for SlashML.
-
-- `Reference Documentation <./reference.html>`_
+| Complete documentation on all methods and classes for SlashML.
 
 .. toctree::
    :maxdepth: 1
    :caption: Reference
    :name: reference
-   :hidden:
 
-   ./reference.rst
+   ./reference/reference.rst
+
+
+Use Cases
+---------------
+
+| This section contains some of the use-cases that we have found for our services.
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Use-Cases
+   :name: use-cases
+   :glob:
+
+   use-cases/*
 
 
 Additional Resources
