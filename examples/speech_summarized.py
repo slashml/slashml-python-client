@@ -2,7 +2,7 @@ from slashml import SpeechToText, TextSummarization
 
 # Replace `API_KEY` with your SlasML API token. This example still runs without
 # the API token but usage will be limited
-API_KEY = "a7011983a0f3d64ee113317b1e36f8e5bf56c14a"
+API_KEY = "YOUR_API_KEY"
 
 service_provider_speech_to_text = SpeechToText.ServiceProvider.WHISPER
 service_provider_summarize = TextSummarization.ServiceProvider.OPENAI
