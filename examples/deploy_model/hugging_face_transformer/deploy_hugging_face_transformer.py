@@ -11,9 +11,7 @@ def train_model():
 my_model = train_model()
 
 # Replace `API_KEY` with your SlasML API token.
-API_KEY = "YOUR_API_KEY"
-
-model = ModelDeployment(api_key=API_KEY)
+model = ModelDeployment(api_key=None)
 
 # deploy model
 response = model.deploy(model_name='my_model_3', model=my_model)
@@ -34,3 +32,4 @@ while status.status != 'READY':
 # submit prediction
 input_text = 'Steve jobs is the [MASK] of Apple.'
 prediction = model.predict(model_version_id=response.id, model_input=input_text)
+print(prediction)

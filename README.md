@@ -68,6 +68,12 @@ print(f"Summary = {response.summarization_data}")
 #### Deploy your own Model
 <!-- write a code snippet in the minimum number of lines  -->
 
+Note: this examples requires the `transformers` and `torch` packages to be installed. You can install them with `pip install transformers torch`
+
+```
+pip install transformers torch
+```
+
 ```python
 from slashml import ModelDeployment
 import time

@@ -3,6 +3,7 @@ from slashml import TextToSpeech
 # Replace `API_KEY` with your SlasML API token. This example still runs without
 # the API token but usage will be limited
 API_KEY = "YOUR_API_KEY"
+API_KEY = None
 service_provider = TextToSpeech.ServiceProvider.AWS
 input_text = "To be or not to be, that is the question!"
 
