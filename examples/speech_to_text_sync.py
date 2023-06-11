@@ -3,7 +3,7 @@ from slashml import SpeechToText
 # Replace `API_KEY` with your SlasML API token. This example still runs without
 # the API token but usage will be limited
 API_KEY = "YOUR_API_KEY"
-API_KEY = None
+
 service_provider = SpeechToText.ServiceProvider.WHISPER
 audio_filepath = "test.mp3"
 
