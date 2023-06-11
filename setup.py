@@ -18,7 +18,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="slashml",
-    version="0.1.3",
+    version="0.1.4",
     url="https://slashml.com/",
     author="eff-kay",
     author_email="faiizan14@gmail.com",
