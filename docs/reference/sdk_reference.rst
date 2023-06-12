@@ -1,8 +1,8 @@
 =============
-API Reference
+Python SDK Reference
 =============
 
-This is the API Reference documentation for SlashML
+Complete documentation on all the methods and classes for the Python SDK
 
 
 .. toctree::
@@ -11,4 +11,5 @@ This is the API Reference documentation for SlashML
    ./service/speech_to_text.rst
    ./service/text_summarization.rst
    ./service/text_to_speech.rst
+   ./service/model_deployment.rst
    

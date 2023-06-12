@@ -1,5 +1,5 @@
 ==============
-Speech To Text
+Speech To Text API
 ==============
 
 .. mdinclude:: snippets/speech_to_text_1.md

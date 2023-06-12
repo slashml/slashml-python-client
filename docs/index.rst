@@ -4,23 +4,40 @@ Welcome to SlashML
 | **SlashML** is a framework that provides the best performing ML models under one API. This enables the users to rapidly prototype their machine-learning solutions.
 
 
-Getting Started
+Quick Start
 ---------------
+
+
+To quickly play around with the model we recommend using the Python SDK client. You can install the client using pip.
 
 .. code-block:: python
 
    pip install slashml
-
 
 Example - Text To Speech
 ------------------------
 
 .. literalinclude:: ../examples/text_to_speech_sync.py
 
+Example - Text Summarization
+------------------------
+
+.. literalinclude:: ../examples/summarize_sync.py
+
+Example - Speech to Text
+------------------------
+
+.. literalinclude:: ../examples/speech_to_text_sync.py
+
+Example - Model Deployment
+------------------------
+.. literalinclude:: ../examples/deploy_model/hugging_face_transformer/deploy_hugging_face_transformer.py
+
 Examples
 --------
 
-You can find other examples `here <https://github.com/slashml/slashml-python-client/tree/main/examples>`_.
+You can find production ready examples here `here <https://github.com/slashml/slashml-python-client/tree/main/examples>`_.
+
 
 API Token
 ---------
@@ -30,24 +47,10 @@ There is a daily limit (throttling) on the number of calls the user performs. Th
 If the user intends on using the service more frequently, it is recommended to generate a token or API key from `here <https://www.slashml.com/settings/api-key>`_. You can pass the API key when creating a model, if you don't the API will still work but you will be throttled.
 
 
-Services
-----------
-
-| We currently support the following machine-learning services:
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Services
-   :name: services
-   :glob:
-
-   services/*
-
-
-Deploying Examples
+Deploying the above Examples
 ------------------
 
-- `Deploy Demos <./deployment/dash_render.html>`_: It takes around 2-5 minutes to deploy our demos.
+- `Deploy Demos <./deployment/dash_render>`_: It takes around 2-5 minutes to deploy our demos.
 
 .. toctree::
    :maxdepth: 1
@@ -57,18 +60,30 @@ Deploying Examples
 
    ./deployment/dash_render.md
 
-
-Reference Docs
+Python SDK
 ---------------
 
 | Complete documentation on all methods and classes for SlashML.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Reference
+   :caption: Python SDK Reference
    :name: reference
 
-   ./reference/reference.rst
+   ./reference/sdk_reference.rst
+
+
+Full API Reference
+----------
+
+Models on SlashML can be used in languages other than Python. The full API reference can be found here. If you would like to create a client in another language, please contact us at `faizank@slashml.com`. We would love to help you out!. 🙏
+ 
+.. toctree::
+   :maxdepth: 1
+   :caption: API Reference
+   :glob:
+
+   api_reference/*
 
 
 Use Cases
