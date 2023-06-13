@@ -1,9 +1,9 @@
 ### Check status of job
 
-Now that the audio file has been submitted for transcription, we can make requests to GET the status of the transcription, and eventually the result of the transcription.
+The request API is similar to all job submissions. We can make requests to GET the status of the jobs, and eventually the result of the submitted job, i.e. transcription, or speechification.
 
 ```bash
-GET https://api.slashml.com/speech-to-text/v1/status/YOUR-JOB-ID/
+GET https://api.slashml.com/speech-to-text/v1/jobs/YOUR-JOB-ID/
 ```
 
 #### Request

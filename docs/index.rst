@@ -72,6 +72,18 @@ Python SDK
 
    ./reference/sdk_reference.rst
 
+Model Deployment
+---------------
+
+| Complete documentation on all methods and classes for SlashML.
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Model Deployment Reference
+   :glob:
+
+   ./model_deployment/*
+
 
 Full API Reference
 ----------

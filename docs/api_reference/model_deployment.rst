@@ -1,13 +1,9 @@
 ==============
-Text To Speech API
+Model Deployment API
 ==============
 
-.. mdinclude:: snippets/text_to_speech_1.md
+.. mdinclude:: snippets/model_deployment_1.md
 
-Service Providers
------------------
-You can find a list of all service providers here: 
-:py:class:`slashml.TextToSpeech.ServiceProvider`
-
-.. mdinclude:: snippets/text_to_speech_2.md
-.. mdinclude:: snippets/job_status.md
+.. mdinclude:: snippets/model_deployment_2.md
+.. mdinclude:: snippets/model_deployment_3.md
+.. mdinclude:: snippets/model_deployment_4.md
