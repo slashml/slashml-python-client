@@ -1,6 +1,7 @@
 ==================
-Text Summarization
+Text Summarization API
 ==================
+
 .. mdinclude:: snippets/text_summarization_1.md
 
 Service Providers

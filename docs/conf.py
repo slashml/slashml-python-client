@@ -84,6 +84,8 @@ html_theme_options = {
     "path_to_docs": "docs",
     "repository_url": "https://github.com/slashml/slashml-python-client",
     "use_repository_button": True,
+    "navbar_sort": False,
+    "navbar_footer_text": "Made with ❤️ by slashml.com",
 }
 
 html_context = {
