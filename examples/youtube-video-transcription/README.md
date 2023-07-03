@@ -1,5 +1,22 @@
 
 ## Setup
+
+Clone the parent repostory 
+
+
+```bash
+git clone git@github.com:slashml/slashml-python-client.git
+```
+
+Change directory to the example folder:
+
+```bash
+cd slashml-python-client/examples/youtube-video-transcription
+```
+
+This will bring you to the current folder
+
+
 Create a new python virtual env and install the requirements:
 
 ```bash
@@ -7,6 +24,16 @@ python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
+
+## Quickstart
+
+```
+python transcribe_youtube_video.py
+```
+
+This will print the transcription of https://youtu.be/5-TgqZ8nado. 
+
+
 
 ## Transcribing a single video
 update the `youtube_url` variable at line 36 in `youtube_video_transcription.py` with the url of the video you want to transcribe.
