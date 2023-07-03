@@ -32,9 +32,6 @@ def transcribe_youtube_file(*, youtube_url:str):
 
     return response.transcription_data.transcription
 
-def transcribe_multiple_youtube_videos(*, youtube_urls:list):
-    return list(map(transcribe_youtube_file, youtube_urls))
-
 if __name__=='__main__':
     youtube_url = 'https://youtu.be/5-TgqZ8nado'
     print(transcribe_youtube_file(youtube_url=youtube_url))
