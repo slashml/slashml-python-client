@@ -58,3 +58,9 @@ This will print a list of transcription texts.
 
 
 For more information, read our docs at https://docs.slashml.com/reference/service/speech_to_text.html
+
+
+## On Premise
+Want to do this on your own system, with your own videos? We have dozens of custom built ML models ready for on-prem deployment
+
+contact us at contactk@slashml.com. 
