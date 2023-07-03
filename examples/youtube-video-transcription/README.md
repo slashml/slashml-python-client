@@ -61,6 +61,6 @@ For more information, read our docs at https://docs.slashml.com/reference/servic
 
 
 ## On Premise
-Want to do this on your own system, with your own videos? We have dozens of custom built ML models ready for on-prem deployment
+Want to do this on your own servers, with your own videos? We have dozens of custom built ML models ready for on-prem deployments
 
-contact us at contactk@slashml.com. 
+contact us at contact@slashml.com. 
