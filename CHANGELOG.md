@@ -2,6 +2,11 @@
 All notable changes to `slashml-python-client` aka `slashml` will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## 0.1.5 - 2023-09-17
+
+### Added
+- Unpin depenedencies
+
 ## 0.1.4 - 2023-06-09
 
 ### Added

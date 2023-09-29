@@ -4,7 +4,8 @@ import time
 import tarfile
 import truss
 from enum import Enum
-from .utils import generateURL, baseUrl, generateHeaders, formatResponse, getTaskStatus
+from slashml.utils import generateURL, baseUrl, generateHeaders, formatResponse, getTaskStatus
+import typing as t
 
 
 import os
@@ -23,8 +24,17 @@ class ModelDeployment:
         with tarfile.open(tar_gz_filename, "w:gz") as tar:
             tar.add(folder_path, arcname=os.path.basename(folder_path))
 
-    def deploy(self, *, model_name:str, model: str):
+    def deploy(self, *, model_name:str, model: str, requirements:t.Optional[list] = None):
         """Submit job"""
+
+        requirements_file_path = None
+        if requirements:
+            with open('requirements.txt', 'w') as f:
+                for item in requirements:
+                    f.write("%s\n" % item)
+            
+            requirements_file_path = 'requirements.txt'
+
         truss.create(model, 'my_model')
         self.create_tar_gz(folder_path='my_model', tar_gz_filename='my_model.tar.gz')
 
@@ -35,10 +45,11 @@ class ModelDeployment:
             "model_name": model_name,
         }
 
-        import pdb
-        pdb.set_trace()
-
         response = requests.post(url, headers=self._headers, data=payload, files=files)
+
+        # remove requirements.txt
+        if requirements_file_path:
+            os.remove(requirements_file_path)
 
         return formatResponse(response)
 
