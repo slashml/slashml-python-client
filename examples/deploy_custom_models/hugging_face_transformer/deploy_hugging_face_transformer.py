@@ -4,11 +4,11 @@ import time
 # you might have to install transfomers and torch
 from transformers import pipeline
 
-def train_model():
-    # Bring in model from huggingface
-    return pipeline('fill-mask', model='bert-base-uncased')
+# def train_model():
+#     # Bring in model from huggingface
+#     return 
 
-my_model = train_model()
+my_model = pipeline('fill-mask', model='bert-base-uncased')
 
 # Replace `API_KEY` with your SlasML API token.
 model = ModelDeployment(api_key=None)

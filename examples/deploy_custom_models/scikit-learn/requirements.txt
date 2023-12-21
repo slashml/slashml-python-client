@@ -1,2 +1,2 @@
-sklearn==1.2.2
-slashml==0.1.4
+scikit-learn
+slashml==0.1.5
