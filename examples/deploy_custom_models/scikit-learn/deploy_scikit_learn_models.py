@@ -16,18 +16,8 @@ client = ModelDeployment(api_key=None)
 # deploy model
 response = client.deploy(model_name='sk-learn-model', model=my_model)
 
-# wait for it to be deployed
-time.sleep(2)
+# check status
 status = client.status(model_version_id=response.id)
-
-while status.status != 'READY':
-    print(f'status: {status.status}')
-    print('trying again in 5 seconds')
-    time.sleep(5)
-    status = client.status(model_version_id=response.id)
-
-    if status.status == 'FAILED':
-        raise Exception('Model deployment failed')
 
 # submit prediction
 model_input = [[0, 0, 0, 0]]

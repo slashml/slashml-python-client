@@ -33,3 +33,6 @@ class Model:
                 model_input
             ).tolist()
         return model_output
+
+
+Model().predict(input)

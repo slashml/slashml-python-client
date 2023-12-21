@@ -1,4 +1,4 @@
-from slashml import SpeechToText, TextSummarization, TextToSpeech
+from slashml import SpeechToText, TextSummarization, TextToSpeech, ModelDeployment as Pipeline
 
 # Replace `API_KEY` with your SlasML API token. This example still runs without
 # the API token but usage will be limited
@@ -16,22 +16,28 @@ uploaded_url = (
 transcribe = SpeechToText(api_key=API_KEY)
 summarize = TextSummarization(api_key=API_KEY)
 speechify = TextToSpeech(api_key=API_KEY)
+pipeline = Pipeline(api=API_KEY)
 
 
-response = transcribe.execute(
-    upload_url=uploaded_url, service_provider=service_provider_speech_to_text
-)
+response = pipeline.deploy(blueprint = [transcribe, summarize, speechify], upload_url=uploaded_url)
 
-print('starting pipeline, the first response might take 10 secs')
-transcribed_text = response.transcription_data.transcription
-print (f"Transcribed Text = {transcribed_text}")
+pipeline.status(response.pipeline_id)
 
-response_summarize = summarize.execute(transcribed_text, service_provider_summarize)
 
-summary = response_summarize.summarization_data
+# response = transcribe.execute(
+#     upload_url=uploaded_url, service_provider=service_provider_speech_to_text
+# )
 
-print (f"Summarized Text = {summary}")
+# print('starting pipeline, the first response might take 10 secs')
+# transcribed_text = response.transcription_data.transcription
+# print (f"Transcribed Text = {transcribed_text}")
 
-response = speechify.execute(summary, service_provider_text_to_speech)
+# response_summarize = summarize.execute(transcribed_text, service_provider_summarize)
 
-print (f"\n\n\n You can access the audio file here: {response.audio_url}")
+# summary = response_summarize.summarization_data
+
+# print (f"Summarized Text = {summary}")
+
+# response = speechify.execute(summary, service_provider_text_to_speech)
+
+# print (f"\n\n\n You can access the audio file here: {response.audio_url}")

@@ -35,7 +35,7 @@ class ModelDeployment:
             
             requirements_file_path = 'requirements.txt'
 
-        truss.create(model, 'my_model')
+        truss.create(model, 'my_model', requirements_file=requirements_file_path)
         self.create_tar_gz(folder_path='my_model', tar_gz_filename='my_model.tar.gz')
 
         url = generateURL(self._base_url, "models")
